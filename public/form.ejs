@@ -9,33 +9,62 @@
 </head>
 
 <body>
-    <ul>
-        <% obj.forEach(function(justOne) { %>
-            <li>
-                Id - <strong>
-                    <%= justOne.theaterId %>
-                </strong> <br>
-                City - <strong>
-                    <%= justOne.location.address.city %>
-                </strong> /
-                State - <strong>
-                    <%= justOne.location.address.state %>
-                </strong> /
-                Zip code - <strong>
-                    <%= justOne.location.address.zipcode %>
-                </strong> /
-                Street - <strong>
-                    <%= justOne.location.address.street1 %>
-                </strong> <br> <br>
-            </li>
+    <form action="/addName" method="post" enctype="multipart/form-data">
+        <input id="usName" type="text" required name="name" placeholder="Please type your name"><br><br>
+        <input id="usPassword" type="password" name="password" placeholder="Please type your Pass"><br><br>
+        <input id="usEmail" type="email" name="email" placeholder="Please type your email"><br><br>
+
+        <!-- Age input field -->
+        <label for="age">Age:</label>
+        <input id="age" type="number" name="age" placeholder="Please enter your age" required><br><br>
+
+        <!-- Image upload field -->
+        <label for="image">Upload Your Image:</label>
+        <input type="file" id="image" name="image" accept="image/*"><br><br>
+
+        <!-- New select field with random countries -->
+        <label for="region">Select Your Region:</label>
+        <select name="region" id="region" required>
+            <option value="USA">United States</option>
+            <option value="CAN">Canada</option>
+            <option value="UK">United Kingdom</option>
+            <option value="AUS">Australia</option>
+            <option value="GER">Germany</option>
+            <option value="FRA">France</option>
+            <option value="JPN">Japan</option>
+            <option value="BRA">Brazil</option>
+            <option value="ARM">Armenia</option>
+            <option value="CHN">China</option>
+            <option value="RUS">Russia</option>
+            <option value="RSA">South Africa</option>
+        </select>
+        <br><br>
+
+        <ul>
+            <% obj.forEach(function(justOne) { %>
+                <li>
+                    Id - <strong>
+                        <%= justOne.theaterId %>
+                    </strong> <br>
+                    City - <strong>
+                        <%= justOne.location.address.city %>
+                    </strong> /
+                    State - <strong>
+                        <%= justOne.location.address.state %>
+                    </strong> /
+                    Zip code - <strong>
+                        <%= justOne.location.address.zipcode %>
+                    </strong> /
+                    Street - <strong>
+                        <%= justOne.location.address.street1 %>
+                    </strong> <br> <br>
+                </li>
             <% }); %>
-    </ul>
-    <!-- <form action="/addName" method="post"> -->
-    <input id="usName" type="text" required name="name" placeholder="Please type your name"><br><br>
-    <input id="usPassword" type="password" name="password" placeholder="Please type your Pass"><br><br>
-    <input id="usEmail" type="email" name="email" placeholder="Please type your email"><br><br>
-    <input type="submit" onclick="getVal()">
-    <!-- </form> -->
+        </ul>
+
+        <!-- Your existing input fields -->
+        <input type="submit" onclick="getVal()">
+    </form>
 
     <script src="script.js"></script>
 </body>
