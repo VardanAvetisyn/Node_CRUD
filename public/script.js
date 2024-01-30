@@ -7,7 +7,7 @@ let region = document.getElementById('region');
 function getVal(event) {
     event.preventDefault();
 
-    var response = fetch("http://localhost:3000/addUser", {
+    fetch("http://localhost:3000/addUser", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
@@ -19,6 +19,12 @@ function getVal(event) {
             age: age.value,
             region: region.value
         })
+    }).then(response => {
+        if (response.ok) {
+            window.location.href = "/users";
+        } else {
+            console.error('Failed to add user');
+        }
     });
 }
 

@@ -1,0 +1,40 @@
+<!-- public/users.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Data</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <h1>User Data</h1>
+    <table border="1">
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Age</th>
+            <th>Photo</th>
+            <th>Update</th>
+            <th>Delete</th>
+        </tr>
+        <% users.forEach(function(user) { %>
+            <tr>
+                <td><%= user._id %></td>
+                <td><%= user.UserName %></td>
+                <td><%= user.Email %></td>
+                <td><%= user.Age %></td>
+                <td><img src="data:image/jpeg;base64,<%= user.image %>" alt="User Photo" width="100"></td>
+                <!-- Add Update and Delete buttons with links -->
+                <td><a href="/users/update/<%= user._id %>">Update</a></td>
+                <td><a href="/users/delete/<%= user._id %>">Delete</a></td>
+            </tr>
+        <% }); %>
+    </table>
+</body>
+
+</html>

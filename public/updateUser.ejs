@@ -1,0 +1,36 @@
+<!-- public/updateUser.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update User</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <h1>Update User</h1>
+    <form action="/users/update/<%= userId %>" method="post" enctype="multipart/form-data">
+        <!-- Include input fields for updating user information -->
+        <label for="newName">New Name:</label>
+        <input type="text" id="newName" name="newName" required>
+        <br>
+        <label for="newEmail">New Email:</label>
+        <input type="email" id="newEmail" name="newEmail" required>
+        <br>
+        <label for="newAge">New Age:</label>
+        <input type="number" id="newAge" name="newAge" required>
+        <br>
+        <label for="newPassword">New Password:</label>
+        <input type="password" id="newPassword" name="newPassword">
+        <br>
+        <label for="newImage">New Image:</label>
+        <input type="file" id="newImage" name="newImage" accept="image/*">
+        <br>
+        <input type="submit" value="Update">
+    </form>
+</body>
+
+</html>
