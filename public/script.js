@@ -4,8 +4,10 @@ let usEmail = document.getElementById('usEmail');
 let age = document.getElementById('age');
 let region = document.getElementById('region');
 
-function getVal() {
-    var response =  fetch("http://localhost:3000/addName", {
+function getVal(event) {
+    event.preventDefault();
+
+    var response = fetch("http://localhost:3000/addUser", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
@@ -14,8 +16,9 @@ function getVal() {
             name: usName.value,
             password: usPassword.value,
             email: usEmail.value,
-            age: age.value, 
+            age: age.value,
             region: region.value
         })
     });
 }
+

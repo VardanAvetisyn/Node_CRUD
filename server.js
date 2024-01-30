@@ -8,7 +8,6 @@ const app = express();
 const mongoose = require('mongoose');
 const connectionString = 'mongodb+srv://VardanAvetisyan:V20080711_v@cluster0.pukcmgx.mongodb.net/TumoUsers';
 
-// Multer setup for handling file uploads
 const storage = multer.memoryStorage();
 const upload = multer({ storage: storage });
 
